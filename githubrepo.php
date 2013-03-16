@@ -51,6 +51,7 @@ class plgContentGithubrepo extends JPlugin
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find user at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;
                 }
+                
                 if (!array_key_exists(1, $matcheslist)) {
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find repository name at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;

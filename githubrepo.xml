@@ -8,7 +8,11 @@
     <authorEmail>admin@escope.cz</authorEmail>
     <authorUrl>http://www.escope.cz</authorUrl>
     <version>2.5.0</version>
-    <description>GitHub Repo plugin can embed any public GitHub repository right inside your content.</description>
+    <description>
+                GitHub Repo plugin can embed any public GitHub repository right inside your content. 
+                Example use: {githubrepo escopecz|plg_githubrepo}. 
+                More into at http://www.escope.cz/en/extensions/documentation/98-github-repo.
+    </description>
     <files>
         <filename plugin="githubrepo">githubrepo.php</filename>
         <filename>repo.js</filename>
@@ -17,15 +21,13 @@
     <config>
         <fields name="params">
             <fieldset name="basic">
-                <field name="style" type="list"
-                    default="table"
-                    description="PLG_LOADMODULE_FIELD_STYLE_DESC"
-                    label="PLG_LOADMODULE_FIELD_STYLE_LABEL">
-                    <option value="table">PLG_LOADMODULE_FIELD_VALUE_TABLE</option>
-                    <option value="horz">PLG_LOADMODULE_FIELD_VALUE_HORIZONTAL</option>
-                    <option value="xhtml">PLG_LOADMODULE_FIELD_VALUE_DIVS</option>
-                    <option value="rounded">PLG_LOADMODULE_FIELD_VALUE_MULTIPLEDIVS</option>
-                    <option value="none">PLG_LOADMODULE_FIELD_VALUE_RAW</option>
+                <field name="jquery" 
+                    type="list"
+                    default="1"
+                    description="Choose whether you want to load jQuery JavaScript library or not."
+                    label="Load jQuery">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
                 </field>
             </fieldset>
         </fields>

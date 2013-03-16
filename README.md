@@ -11,8 +11,10 @@ This Joomla! 2.5 plugin embed GitHub repository right into your content.
 Insert into your article this line of code:
 
 ```javascript
-{githubrepo darcyclarke|Repo.js}
+{githubrepo escopecz|plg_githubrepo}
 ````
+
+More info at http://www.escope.cz/en/extensions/documentation/98-github-repo
 
 And plugin replace it with embeded repository.
 
