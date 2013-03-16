@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content">
+    <name>GitHub Repo</name>
+    <author>Jan Linhart</author>
+    <creationDate>April 2013</creationDate>
+    <copyright>Copyright (C) Jan Linhart. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>admin@escope.cz</authorEmail>
+    <authorUrl>http://www.escope.cz</authorUrl>
+    <version>2.5.0</version>
+    <description>GitHub Repo plugin can embed any public GitHub repository right inside your content.</description>
+    <files>
+        <filename plugin="githubrepo">githubrepo.php</filename>
+        <filename>repo.js</filename>
+        <filename>index.html</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="style" type="list"
+                    default="table"
+                    description="PLG_LOADMODULE_FIELD_STYLE_DESC"
+                    label="PLG_LOADMODULE_FIELD_STYLE_LABEL">
+                    <option value="table">PLG_LOADMODULE_FIELD_VALUE_TABLE</option>
+                    <option value="horz">PLG_LOADMODULE_FIELD_VALUE_HORIZONTAL</option>
+                    <option value="xhtml">PLG_LOADMODULE_FIELD_VALUE_DIVS</option>
+                    <option value="rounded">PLG_LOADMODULE_FIELD_VALUE_MULTIPLEDIVS</option>
+                    <option value="none">PLG_LOADMODULE_FIELD_VALUE_RAW</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
