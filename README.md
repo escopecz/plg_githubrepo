@@ -1,7 +1,7 @@
 GitHub Repo Joomla! plugin
 ==========================
 
-This Joomla! 2.5 plugin embed GitHub repository right into your content.
+This Joomla! 2.5+ plugin embed GitHub repository right into your content.
 
 @author [Jan Linhart](http://escope.cz)
 @licence GNU General Public License version 2 or later
