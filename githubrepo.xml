@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
     <name>GitHub Repo</name>
     <author>Jan Linhart</author>
     <creationDate>April 2013</creationDate>
@@ -25,7 +25,7 @@
                     type="list"
                     default="1"
                     description="Choose whether you want to load jQuery JavaScript library or not."
-                    label="Load jQuery">
+                    label="Load jQuery (J2.5 Only)">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
