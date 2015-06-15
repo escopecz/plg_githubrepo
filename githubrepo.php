@@ -20,7 +20,7 @@ class plgContentGithubrepo extends JPlugin
      * @param	int	The 'page' number
      */
     public function onContentPrepare($context, &$article, &$params, $page = 0)
-    {       
+    {
 
         // Don't run this plugin when the content is being indexed
         if ($context == 'com_finder.indexer') {
@@ -51,7 +51,7 @@ class plgContentGithubrepo extends JPlugin
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find user at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;
                 }
-                
+
                 if (!array_key_exists(1, $matcheslist)) {
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find repository name at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;
@@ -59,16 +59,12 @@ class plgContentGithubrepo extends JPlugin
 
                 $document = JFactory::getDocument();
                 $document->addStyleDeclaration('.file.page.active{position:static}');
-                if ( version_compare( JVERSION, '3.0', '<' ) == 1) { 
-					if($jquery){
-						$document->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
-					}
-				} else {
-					JHtml::_('jquery.framework');
-				}
+
+		JHtml::_('jquery.framework');
+
                 $document->addScript('plugins/content/githubrepo/repo.js');
                 $document->addScriptDeclaration("jQuery(function(){jQuery('#".$matcheslist[0]."').repo({ user: '".$matcheslist[0]."', name: '".$matcheslist[1]."' });});");
-                
+
                 $repo = '<div id="'.$matcheslist[0].'"></div>';
 
                 $article->text = str_replace($match[0], $repo, $article->text);
