@@ -60,7 +60,15 @@ class plgContentGithubrepo extends JPlugin
                 $document = JFactory::getDocument();
                 $document->addStyleDeclaration('.file.page.active{position:static}');
 
-		JHtml::_('jquery.framework');
+		$version = new JVersion;
+
+		if ( version_compare( $version, '3.0', '<' ) == 1) {
+                           if($jquery){
+                                 $document->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+                           }
+                } else {
+                           JHtml::_('jquery.framework');
+                }
 
                 $document->addScript('plugins/content/githubrepo/repo.js');
                 $document->addScriptDeclaration("jQuery(function(){jQuery('#".$matcheslist[0]."').repo({ user: '".$matcheslist[0]."', name: '".$matcheslist[1]."' });});");
