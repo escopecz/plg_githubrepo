@@ -1,9 +1,9 @@
 <?php
 /**
- * @package	Joomla.Plugin
+ * @package	    Joomla.Plugin
  * @subpackage	Content.githubrepo
  * @copyright	Copyright (C) Jan Linhart. All rights reserved.
- * @license	GNU General Public License version 2 or later; see LICENSE.txt
+ * @license	    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // no direct access
@@ -23,13 +23,15 @@ class plgContentGithubrepo extends JPlugin
     {
 
         // Don't run this plugin when the content is being indexed
-        if ($context == 'com_finder.indexer') {
-                return true;
+        if ($context == 'com_finder.indexer')
+        {
+            return true;
         }
 
         // simple performance check to determine whether bot should process further
-        if (strpos($article->text, 'githubrepo') === false) {
-                return true;
+        if (strpos($article->text, 'githubrepo') === false)
+        {
+            return true;
         }
 
         // expression to search for (positions)
@@ -40,19 +42,22 @@ class plgContentGithubrepo extends JPlugin
         // $matches[0] is full pattern match, $matches[1] is the repo declaration
         preg_match_all($regex, $article->text, $matches, PREG_SET_ORDER);
 
-        if ($matches) {
+        if ($matches)
+        {
 
-            foreach ($matches as $match) {
-
+            foreach ($matches as $match)
+            {
                 $matcheslist = explode('|', str_replace(' ', '', $match[1]));
 
 
-                if (!array_key_exists(0, $matcheslist)) {
+                if (!array_key_exists(0, $matcheslist))
+                {
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find user at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;
                 }
 
-                if (!array_key_exists(1, $matcheslist)) {
+                if (!array_key_exists(1, $matcheslist))
+                {
                     JError::raiseNotice( 100, 'GithubRepo plugin can\'t find repository name at your github repo declaration. Check if the declaration is in the form of &#123;githubrepo user|repo&#125;' );
                     return ;
                 }
@@ -74,10 +79,10 @@ class plgContentGithubrepo extends JPlugin
                     JHtml::_('jquery.framework');
                 }
 
-                $document->addScript('plugins/content/githubrepo/repo.js');
-                $document->addScriptDeclaration("jQuery(function(){jQuery('#".$matcheslist[0]."').repo({ user: '".$matcheslist[0]."', name: '".$matcheslist[1]."' });});");
+                $document->addScript(JURI::root() . 'plugins/content/githubrepo/repo.js');
+                $document->addScriptDeclaration("jQuery(function(){jQuery('#" . $matcheslist[0] . "').repo({ user: '" . $matcheslist[0] . "', name: '" . $matcheslist[1] . "' });});");
 
-                $repo = '<div id="'.$matcheslist[0].'"></div>';
+                $repo = '<div id="'.  $matcheslist[0] . '"></div>';
 
                 $article->text = str_replace($match[0], $repo, $article->text);
             }
